@@ -5,6 +5,7 @@ const TarefaControlador_1 = require("../controladores/TarefaControlador");
 const tarefaRouter = (0, express_1.Router)();
 tarefaRouter.post('/', TarefaControlador_1.createTarefa);
 tarefaRouter.get('/:id', TarefaControlador_1.findTarefa);
+tarefaRouter.get('/usuario/:id', TarefaControlador_1.findTarefasDoUsuario);
 tarefaRouter.put('/:id', TarefaControlador_1.updateTarefa);
 tarefaRouter.delete('/:id', TarefaControlador_1.deleteTarefa);
 exports.default = tarefaRouter;

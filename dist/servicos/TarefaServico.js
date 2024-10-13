@@ -21,6 +21,9 @@ class TarefaServico {
             throw new Error("Tarefa não encontrada");
         return tarefa;
     }
+    findTarefasDoUsuario(id) {
+        return this.tarefaRepositorio.findAllByUser(id);
+    }
     updateTarefa(tarefaData) {
         const { id, id_usuario, titulo, descricao } = tarefaData;
         const tarefa = new Tarefa_1.Tarefa(id_usuario, titulo, descricao, id);

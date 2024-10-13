@@ -22,6 +22,16 @@ export function findTarefa(req:Request, res:Response) {
     }
 }
 
+export function findTarefasDoUsuario(req:Request, res:Response) {
+    try {
+        const id = req.params.id;
+        
+        return res.status(200).json(tarefaServico.findTarefasDoUsuario(parseInt(id)))
+    } catch (e:any) {
+        return res.status(404).json(e.message);
+    }
+}
+
 export function updateTarefa(req:Request, res:Response) {
     try{
         const id = req.params.id;

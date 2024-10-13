@@ -29,6 +29,10 @@ export class TarefaRepositorio {
         return this.Tarefas.find(tarefa => tarefa.id === id);
     }
 
+    public findAllByUser(id:number) {
+        return this.Tarefas.filter(tarefa => tarefa.id_usuario === id);
+    }
+
     public update(tarefa:Tarefa):Tarefa {
         const index = this.Tarefas.findIndex(valor => valor.id == tarefa.id);
         if(index === -1) {

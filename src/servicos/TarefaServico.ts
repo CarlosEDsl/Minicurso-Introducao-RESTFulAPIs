@@ -21,6 +21,10 @@ export class TarefaServico {
         return tarefa;
     }
 
+    public findTarefasDoUsuario(id:number) {
+        return this.tarefaRepositorio.findAllByUser(id);
+    }
+
     public updateTarefa(tarefaData:any) {
         const {id, id_usuario, titulo, descricao} = tarefaData;
 

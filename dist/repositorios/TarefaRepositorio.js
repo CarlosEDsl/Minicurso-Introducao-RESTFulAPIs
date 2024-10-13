@@ -20,6 +20,9 @@ class TarefaRepositorio {
     find(id) {
         return this.Tarefas.find(tarefa => tarefa.id === id);
     }
+    findAllByUser(id) {
+        return this.Tarefas.filter(tarefa => tarefa.id_usuario === id);
+    }
     update(tarefa) {
         const index = this.Tarefas.findIndex(valor => valor.id == tarefa.id);
         if (index === -1) {

@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTarefa = createTarefa;
 exports.findTarefa = findTarefa;
+exports.findTarefasDoUsuario = findTarefasDoUsuario;
 exports.updateTarefa = updateTarefa;
 exports.deleteTarefa = deleteTarefa;
 const TarefaServico_1 = require("./../servicos/TarefaServico");
@@ -19,6 +20,15 @@ function findTarefa(req, res) {
     try {
         const id = req.params.id;
         return res.status(200).json(tarefaServico.findTarefa(parseInt(id)));
+    }
+    catch (e) {
+        return res.status(404).json(e.message);
+    }
+}
+function findTarefasDoUsuario(req, res) {
+    try {
+        const id = req.params.id;
+        return res.status(200).json(tarefaServico.findTarefasDoUsuario(parseInt(id)));
     }
     catch (e) {
         return res.status(404).json(e.message);
