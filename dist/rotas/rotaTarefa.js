@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const TarefaControlador_1 = require("../controladores/TarefaControlador");
+const tarefaRouter = (0, express_1.Router)();
+tarefaRouter.post('/', TarefaControlador_1.createTarefa);
+tarefaRouter.get('/:id', TarefaControlador_1.findTarefa);
+tarefaRouter.put('/:id', TarefaControlador_1.updateTarefa);
+tarefaRouter.delete('/:id', TarefaControlador_1.deleteTarefa);
+exports.default = tarefaRouter;
