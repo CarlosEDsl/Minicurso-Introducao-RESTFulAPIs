@@ -1,10 +1,11 @@
+import { Usuario } from '../modelos/Usuario';
 import { UsuarioServico } from './../servicos/UsuarioServico';
 import { Request, Response } from "express";
 
 
 const usuarioServico:UsuarioServico = new UsuarioServico();
 
-export function createUsuario(req:Request, res:Response) {
+export function createUsuario(req:Request, res:Response):Response<Usuario> {
     try{    
         const data = req.body;
         return res.status(200).json(usuarioServico.createUsuario(data));
@@ -13,7 +14,7 @@ export function createUsuario(req:Request, res:Response) {
     }
 }
 
-export function findUsuario(req:Request, res:Response) {
+export function findUsuario(req:Request, res:Response):Response<Usuario> {
     try {
         const id = req.params.id;
         return res.status(200).json(usuarioServico.findUsuario(parseInt(id)))
@@ -22,7 +23,7 @@ export function findUsuario(req:Request, res:Response) {
     }
 }
 
-export async function updateUsuario(req:Request, res:Response) {
+export function updateUsuario(req:Request, res:Response):Response<Usuario> {
     try{
         const id = req.params.id;
         const data = req.body;
@@ -34,7 +35,7 @@ export async function updateUsuario(req:Request, res:Response) {
     }
 }
 
-export async function deleteUsuario(req:Request, res:Response) {
+export function deleteUsuario(req:Request, res:Response): Response<Usuario> {
     try {
         const id = req.params.id;
 
